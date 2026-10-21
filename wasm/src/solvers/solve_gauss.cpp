@@ -18,7 +18,7 @@ namespace {
         return g_result.c_str();
     }
 
-    SolveStatus gauss_steps(const ParsedSystem& ps, LatexDoc& doc, std::string err) {
+    SolveStatus gauss_steps(const ParsedSystem& ps, LatexDoc& doc, std::string& err) {
         const int n = (int)ps.vars.size();
         const bool show = n <= MAX_STEP_N;
         Matrix a = ps.aug;
@@ -30,7 +30,7 @@ namespace {
         if (show) doc.math(matrix_tex(a, true));
         else doc.text("The system is large, so intermediate matrices are not shown");
 
-        doc.heading("Step 3: Forward Elimination");
+        doc.heading("Step 3: Forward elimination");
         for(int c = 0; c < n; c++){
             int p = -1;
             for (int r = c; r < n; ++r)
