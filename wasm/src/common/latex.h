@@ -108,7 +108,10 @@ public:
     void heading(const std::string& t) { add("\\textbf{" + t + "}", 16); }
     void text(const std::string& t)    { add("\\text{" + t + "}", 6); }
     void math(const std::string& m)    { add(m, 6); }
-    std::string str() const { return "\\begin{aligned}\n" + body_ + "\n\\end{aligned}"; }
+    std::string str() const {
+        return "\\[\n\\begin{aligned}\n" + body_ +
+            "\n\\end{aligned}\n\\]";
+    }
 
 private:
     void add(const std::string& line, int gap_pt) {
