@@ -6,3 +6,14 @@
   --font-agbalumo: var(--font-agbalumo-source), cursive;
   --font-gochi-hand: var(--font-gochi-hand-source), cursive;
 }
+
+body {
+  background-image: url('/day_bg.png'), linear-gradient(to bottom, #9deffc, #3bd9f1);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  background-color: #f0f0f0;
+  min-height: 100vh;
+  margin: 0;
+}
