@@ -7,6 +7,7 @@ import DeterminantGrid from "@/components/DeterminantGrid";
 import LaTeXOutput from "@/components/LaTeXOutput";
 import { runDeterminant, runRegression, runSystemSolver } from "@/lib/lineaEngine";
 import P from "./Paragraph";
+import LinearRegressionGraph from "./LinearRegressionGraph";
 
 const START_MATRIX = [
     ["0", "1", "2"],
@@ -231,6 +232,9 @@ export default function LineaWorkspace({ mode, onModeChange }) {
                 </WoodPanel>
             </div>
             <LaTeXOutput result={result} isSolving={isSolving} />
+            {mode === "regression" && result?.type === "success" && (
+                <LinearRegressionGraph input={regressionInput} />
+            )}
         </div>
     )
 }
